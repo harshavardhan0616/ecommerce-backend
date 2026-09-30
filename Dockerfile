@@ -4,8 +4,10 @@ WORKDIR /app
 
 COPY . .
 
+RUN chmod +x mvnw
+
 RUN ./mvnw clean package -DskipTests
 
 EXPOSE 8081
 
-CMD ["java","-jar","target/ecommerce-backend-0.0.1-SNAPSHOT.jar"]
+CMD ["sh","-c","java -jar target/*.jar"]
